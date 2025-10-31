@@ -1,0 +1,7 @@
+parm sys-protein.prmtop
+trajin cbx8_500ns.nc 1 last 50
+reference sys-amber.pdb
+autoimage
+rms reference out rmsd-protein2-bb_pprod.dat :17-86@CA,C,N,O
+rms reference nofit out rmsd-protein1_prod.dat :1-16&!@H=
+trajout prod.nc nobox

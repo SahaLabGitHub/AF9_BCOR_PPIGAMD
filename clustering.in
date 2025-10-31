@@ -1,0 +1,22 @@
+parm sys-protein.prmtop
+  
+trajin cbx8_500ns.nc
+#trajin md-3.nc 
+#trajin md-4.nc 
+#trajin md-5.nc 
+#trajin md-6.nc 
+#trajin md-7.nc 
+#trajin md-8.nc 
+#trajin md-9.nc 
+#trajin md-10.nc 
+#trajin md-11.nc 
+
+reference sys-amber.pdb
+
+autoimage
+
+rms reference mass @CA
+
+strip !:1-16 # cluster only residues 20-30
+
+cluster C0 hieragglo averagelinkage clusters 10 epsilonplot epsilonplot.dat rms @CA nofit sieve 10 out cnumvtime.dat summary summary.dat info info.dat singlerepout top-confs.pdb singlerepfmt pdb
